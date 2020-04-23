@@ -1,40 +1,30 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.service.HelloWorldService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("greetings")
+@RequestMapping("greeting")
+@RequiredArgsConstructor
 public class GreetingController {
-    List<String> greetings = Arrays.asList(
-            "Hello World",
-            "Привет мир",
-            "ciao mondo",
-            "Hallo Welt",
-            "Bonjour le Monde",
-            "مرحبا بالعالم",
-            "שלום עולם",
-            "नमस्ते दुनिया"
-            );
 
-    @Autowired
-    public GreetingController() { }
+    private final HelloWorldService helloWorldService;
 
     @GetMapping
-    public List<String> list() {
-        return greetings;
+    public Map<Integer, String> list() {
+        return helloWorldService.getAll();
     }
 
     @GetMapping("{id}")
-    public String getOne(@PathVariable("id") String greeting) {
-        return greeting;
+    public String getOne(@PathVariable("id") Integer id) {
+        return this.helloWorldService.get(id);
     }
 
     @DeleteMapping("{id}")
-    public void delete(@PathVariable("id") String greeting) {
-        greetings.remove(greeting);
+    public void delete(@PathVariable("id") Integer id) {
+        helloWorldService.get(id);
     }
 }

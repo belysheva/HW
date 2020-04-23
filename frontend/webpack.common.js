@@ -2,24 +2,12 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-    mode: 'development',
-    devtool: 'source-map',
-    entry: path.join(__dirname, 'src', 'main.js'),
-    devServer: {
-        contentBase: './dist',
-        compress: true,
-        port: 8015,
-        allowedHosts: [
-            'localhost:9015'
-        ],
-        stats: 'errors-only',
-        clientLogLevel: 'error',
-    },
+    entry: path.join(__dirname, 'src','main.js'),
     module: {
         rules: [
             {
                 test: /\.js$/,
-                // exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -30,6 +18,13 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
             }
         ]
     },
@@ -38,8 +33,8 @@ module.exports = {
     ],
     resolve: {
         modules: [
-            path.join(__dirname, 'src', 'components'),
+            path.join(__dirname, 'src'),
             path.join(__dirname, 'node_modules'),
         ],
     }
-}
+};

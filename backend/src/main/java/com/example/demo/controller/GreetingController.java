@@ -20,8 +20,6 @@ public class GreetingController {
             "नमस्ते दुनिया"
             );
 
-    @Autowired
-    public GreetingController() { }
 
     @GetMapping
     public List<String> list() {

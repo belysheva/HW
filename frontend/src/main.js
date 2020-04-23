@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from 'HelloWorld.vue'
 
- // Vue.use(VueResource)
+// Vue.use(VueResource)
 
 new Vue({
     el: '#app',

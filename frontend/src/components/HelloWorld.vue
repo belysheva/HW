@@ -1,15 +1,22 @@
 <template>
- <div>{{greetings}}</div>
+    <div>
+        <messages-list :greetings="greetings"/>
+    </div>
 </template>
 
 <script>
+    import MessagesList from 'MessagesList.vue'
+
     export default {
-     data(){
-      return {
-        greetings: frontendData.greetings
-      }
-      }
-     }
+        components: {
+            MessagesList
+        },
+        data() {
+            return {
+                greetings: frontendData.greetings
+            }
+        }
+    }
 
 </script>
 

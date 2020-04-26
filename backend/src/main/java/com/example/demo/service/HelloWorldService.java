@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
 import com.example.demo.store.HelloWorldStore;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
+
 public class HelloWorldService {
 
     private final HelloWorldStore store;

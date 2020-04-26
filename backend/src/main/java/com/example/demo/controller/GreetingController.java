@@ -13,6 +13,10 @@ public class GreetingController {
 
     private final HelloWorldService helloWorldService;
 
+    public GreetingController(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
+
     @GetMapping
     public Map<Integer, String> list() {
         return helloWorldService.getAll();

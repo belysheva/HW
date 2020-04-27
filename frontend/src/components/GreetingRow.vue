@@ -1,6 +1,6 @@
 <template>
     <v-card class="my-1">
-        {{ greeting }}
+        {{ greeting.value }}
     </v-card>
 </template>
 

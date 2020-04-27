@@ -74,6 +74,8 @@
         },
         async beforeMount() {
             const response = await worlds.allWorlds()
+            const getRandomItem = iterable => iterable.get([...iterable.keys()][Math.floor(Math.random() * iterable.size)])
+
             const map = await new Map(Object.entries(response.body))
             await map.forEach((v, k) =>
                 this.worlds.push(
@@ -83,10 +85,11 @@
                     })
                 )
             )
+
+
         },
         methods: {
             sayHello() {
-                this.worlds = worlds
             },
         }
     }

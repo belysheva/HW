@@ -7,9 +7,9 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './dist',
         compress: true,
-        port: 8000,
+        port: 8070,
         allowedHosts: [
-            'localhost:9000'
+            'localhost:9070'
         ],
         //stats и clientLogLevel убирают всю информацию из консоли, кроме ошибок.
         /*stats: 'errors-only',

@@ -1,12 +1,12 @@
 <template>
-    <div>
-        {{ message }}
-    </div>
+    <v-card class="my-1">
+        {{ greeting }}
+    </v-card>
 </template>
 
 <script>
     export default {
-        props: ['message', 'greetings'],
+        props: ['greeting', 'worlds'],
         methods: {}
     }
 </script>
